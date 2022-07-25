@@ -35,7 +35,7 @@ $content = 'while (1) {
     # Convertir en entier
     $time = $time -as [int]
     # Si l heure actuelle est supérieure à la limite ou inférieure à 6h00 et différente de 0, éteindre l ordi
-    if ($time -gt $limit -or $time -lt 0600 -and $time -ne 0) {
+    if (($time -gt $limit) -or ($time -lt 0600) -and ($time)) {
         Stop-Computer -ComputerName localhost
     }
     # La vérification se fait toutes les minutes
@@ -45,7 +45,7 @@ $content = 'while (1) {
 #Vérification de l'existance et écriture des deux fichiers
 $scriptPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\scheduler.ps1"
 $timePath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\time.txt"
-if (Test-Path -Path $scriptPath -PathType Leaf -ne true) {
+if (!(Test-Path -Path $scriptPath -PathType Leaf)) {
     Write-Output "Le script n'existe pas. Tentative de création ..."
     try {
         New-Item $scriptPath
@@ -60,7 +60,7 @@ if (Test-Path -Path $scriptPath -PathType Leaf -ne true) {
 else{
     Write-Output "Le script existe."
 }
-if (Test-Path -Path $timePath -PathType Leaf -ne true) {
+if (!(Test-Path -Path $timePath -PathType Leaf)) {
     Write-Output "Le fichier de configuration n'existe pas. Tentative de création ..."
     try {
         New-Item $timePath
