@@ -45,7 +45,7 @@ $content = 'while (1) {
 #Vérification de l'existance et écriture des deux fichiers
 $scriptPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\scheduler.ps1"
 $timePath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\time.txt"
-if (!Test-Path -Path $path -PathType Leaf) {
+if (Test-Path -Path $path -PathType Leaf -ne true) {
     Write-Output "Le script n'existe pas. Tentative de création ..."
     try {
         New-Item $scriptPath
