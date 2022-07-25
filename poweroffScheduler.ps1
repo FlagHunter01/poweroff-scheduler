@@ -7,7 +7,8 @@ Write-Output " "
 # Vérification des droits
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Output "Merci de lancer ce script avec les privilèges d'administrateur (click droit - Exécuter en tant qu'administrateur"
+    Write-Output "Merci de lancer ce script avec les privilèges d'administrateur (click droit - Exécuter en tant qu'administrateur)"
+    Read-Host "Appuillez sur entrée pour sortir"
     exit 1
 }
 
@@ -56,8 +57,11 @@ if (!Test-Path -Path $path -PathType Leaf) {
         exit 1
     }
 }
+else{
+    Write-Output "Le script existe."
+}
 if (!Test-Path -Path $timePath -PathType Leaf) {
-    Write-Output "Le script n'existe pas. Tentative de création ..."
+    Write-Output "Le fichier de configuration n'existe pas. Tentative de création ..."
     try {
         New-Item $timePath
         Set-Content $timePath $limit
@@ -80,7 +84,7 @@ else {
     }
 }
 Write-Output " "
-Read-Host "Appuillez sur une touche pour fermer le script. Si les fichiers n'existaient pas, merci de redémarrer l'ordinateur."
+Read-Host "Appuillez sur entrée pour fermer le script. Si les fichiers n'existaient pas, merci de redémarrer l'ordinateur."
 
 exit 0
 
