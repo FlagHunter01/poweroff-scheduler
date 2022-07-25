@@ -14,7 +14,7 @@ if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adminis
 
 # Récupération du nom d'utilisateur et de l'heure limite
 Write-Output "Renseignez le nom d'utilisateur cible tel qu'il apparait dans le fichier 'C:\Users'."
-$user = Read-Host"Nom d'utilisateur: "
+$user = Read-Host "Nom d'utilisateur: "
 Write-Output "Renseignez l'heure d'arrêt voulue au format hhmm (Par exempe, 22h30 se note 2230)."
 Write-Output "Pour désactiver l'arrêt programmé, entrez '0'."
 $limit = Read-Host "Heure de l'arrêt programmé: "
