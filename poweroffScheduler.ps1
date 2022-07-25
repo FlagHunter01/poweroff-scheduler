@@ -60,7 +60,7 @@ if (Test-Path -Path $path -PathType Leaf -ne true) {
 else{
     Write-Output "Le script existe."
 }
-if (!Test-Path -Path $timePath -PathType Leaf) {
+if (Test-Path -Path $timePath -PathType Leaf -ne true) {
     Write-Output "Le fichier de configuration n'existe pas. Tentative de création ..."
     try {
         New-Item $timePath
