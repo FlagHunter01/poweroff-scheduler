@@ -88,5 +88,4 @@ Read-Host "Appuillez sur entrée pour fermer le script. Si les fichiers n'exista
 
 exit 0
 
-# https://jd-bots.com/2021/05/15/how-to-run-powershell-script-on-windows-startup/
-# https://superuser.com/questions/886951/run-powershell-script-when-you-open-powershell
+# https://blog.danskingdom.com/allow-others-to-run-your-powershell-scripts-from-a-batch-file-they-will-love-you-for-it/
