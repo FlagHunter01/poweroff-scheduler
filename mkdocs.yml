@@ -66,5 +66,5 @@ markdown_extensions:
 extra:
   social:
     - icon: material/email-edit
-      link: mailto:<tim@frolov.eu>
+      link: mailto:tim@frolov.eu?subject=Besoin d'aide avec le script
       name: tim@frolov.eu
