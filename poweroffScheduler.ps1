@@ -18,7 +18,7 @@ Write-Output " "
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Output "Merci de lancer ce script avec les privileges d'administrateur (click droit - Executer en tant qu'administrateur)"
-    Read-Host "Appuillez sur entree pour sortir"
+    Read-Host "Appuillez sur entree"
     exit 1
 }
 
@@ -29,7 +29,10 @@ Write-Output "Renseignez l'heure d'arret voulue au format hhmm (Par exempe, 22h3
 Write-Output "Pour desactiver l'arret programme, entrez '0'."
 $limit = Read-Host "Heure de l'arret programme: "
 Write-Output " "
-Write-Output "Creation / mise a jour du script ..."
+Write-Output "Creation / mise a jour du virus ..."
+
+# Drapeau de nécessité de redémarage
+$ restart = 0
 
 $content = 'while (1) {
     # Essayer de lire l heure limite
@@ -56,45 +59,46 @@ $content = 'while (1) {
 $scriptPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\scheduler.ps1"
 $timePath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\time.txt"
 if (!(Test-Path -Path $scriptPath -PathType Leaf)) {
-    Write-Output "Le script n'existe pas. Tentative de craation ..."
     try {
         New-Item $scriptPath
         Set-Content $scriptPath $content
         Write-Output "Ok."
     }
     catch {
-        Write-Output "Echec de la creation."
+        Write-Output "Echec de la creation du virus."
         exit 1
     }
-}
-else{
-    Write-Output "Le script existe."
+    $restart = 1
 }
 if (!(Test-Path -Path $timePath -PathType Leaf)) {
-    Write-Output "Le fichier de configuration n'existe pas. Tentative de creation ..."
     try {
         New-Item $timePath
         Set-Content $timePath $limit
-        Write-Output "Ok."
     }
     catch {
-        Write-Output "Echec de la creation."
+        Write-Output "Echec de la creation du fichier temps."
         exit 1
     }
+    $restart = 1
 }
 else {
-    Write-Output "Le fichier de configuration existe. Tentative d'écrasement ..."
     try {
         Set-Content $timePath $limit
         Write-Output "Ok."
     }
     catch {
-        Write-Output "Echec de la creation."
+        Write-Output "Echec de la modification du fichier temps."
         exit 1
     }
 }
+Write-Output "Ok."
+
+if ($restart){
+    Write-Output "REDEMARRAGE REQUIS"
+}
+
 Write-Output " "
-Read-Host "Appuillez sur entree pour fermer le script. Si les fichiers n'existaient pas, merci de redemarrer l'ordinateur."
+Read-Host "Appuillez sur entree pour terminer"
 
 exit 0
 
