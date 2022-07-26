@@ -66,3 +66,7 @@ Avant de lancer du script, vous devez vous menir des deux informations demandée
 En fonctionnement normal, le script arrête l'ordinateur tous les jours à l'heure définie sans qu'aucune action ne soit requise. 
 
 Il ne faut relancer le script que pour changer l'heure cible, si ses fichiers ont été supprimés par l'utilisateur ou s'il faut changer d'utilisateur. 
+
+## Contact
+
+N'hesitez surtout pas à me contacter en cas de doute. Vous pouvez utiliser le boutone en bas à droite de cette page pour m'envoyer un mail rapidement. 
