@@ -1,0 +1,70 @@
+site_name: Extinction programmée
+site_description: Documentation du script
+site_author: Tim FROLOV
+copyright: Copyright &copy; 2022 Tim FROLOV
+
+nav:
+    - Documentation: index.md
+
+theme:
+    name: 'material'
+    language: en
+    icon:
+        logo: material/power
+    palette:
+        scheme: default
+        primary: black
+        accent: amber
+    font:
+        text: Roboto
+        code: Roboto Mono
+    features:
+        - content.tabs.link
+        - content.tooltips
+        - navigation.instant
+        - navigation.tracking
+        - navigation.top
+        - search.suggest
+        - search.highlight
+
+markdown_extensions:
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - admonition
+    - codehilite
+    - toc:
+        permalink: true
+    - pymdownx.details
+    - pymdownx.mark
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.superfences
+    - pymdownx.arithmatex:
+        generic: true
+    - footnotes
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - attr_list
+    - md_in_html
+    - abbr
+    - attr_list
+    - pymdownx.snippets
+
+
+extra:
+  social:
+    - icon: material/email-edit
+      link: mailto:<tim@frolov.eu>
+      name: tim@frolov.eu
