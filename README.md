@@ -18,6 +18,6 @@ The target time can be modified by running the script again, as it will overwrit
 ## Known issues
  
  - Not tested yet
- - A window pops up for a second
+ - A window pops up for a second (should be fixed by now)
  
 
