@@ -49,7 +49,7 @@ $content = 'while (1) {
     $time = $time -as [int]
     # Si l heure actuelle est supérieure à la limite ou inférieure à 6h00 et différente de 0, éteindre l ordi
     if (($time -gt $limit) -or ($time -lt 0600) -and ($time)) {
-        Stop-Computer -ComputerName localhost
+        Stop-Computer -ComputerName localhost -Force
     }
     # La vérification se fait toutes les minutes
     Start-Sleep -Seconds 60
