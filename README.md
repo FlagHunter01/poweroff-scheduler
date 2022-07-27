@@ -14,10 +14,3 @@ With the help of the account name, the script will create two files in the folde
 One of those files is an infinite loop that kills the computer upon reaching the target time, and the other file contains the said target time.
  
 The target time can be modified by running the script again, as it will overwrite the time in the time file.
- 
-## Known issues
- 
- - Not tested yet
- - A window pops up for a second (should be fixed by now)
- 
-
