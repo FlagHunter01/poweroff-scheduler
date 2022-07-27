@@ -1,4 +1,4 @@
-# Aide pour le script d'extinction programmée
+# Aide pour le script d'arrêt programmé
  
 ## Objectif
  
@@ -16,12 +16,23 @@ Il ne nécessite aucune action dans la session de l'utilisateur cible mais requi
 ### Copie du script
  
  - Ouvrir une session administrateur sur le PC cible.
- - Copier le dossier "Extinction programmée" à un endroit facilement accessible, de préférence le bureau.
+ - Copier le dossier "Arrêt programmé" à un endroit facilement accessible, de préférence le bureau.
+ 
+<figure markdown>
+  ![image](img/1.png)
+  <figcaption>Suggestion d'emplacement du dossier</figcaption>
+</figure>
  
 ### Autorisation
  
  - Rechercher `Windows PowerShell` dans la barre Windows.
  - Sélectionner "Exécuter en tant qu'administrateur".
+ 
+<figure markdown>
+  ![image](img/2.png)
+  <figcaption>Lancement de PowerShell</figcaption>
+</figure>
+ 
  - Une fois la console obtenue, entrer la commande suivante et taper ++enter++:
  
 ```powershell
@@ -31,42 +42,61 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
  - Ecrire `O` et taper ++enter++.
  - Ecrire `exit` et taper ++enter++.
  
+<figure markdown>
+  ![image](img/3.png)
+  <figcaption>Attribution des droits</figcaption>
+</figure>
+ 
 ## Utilisation
-
+ 
 ### Informations requises
-
-Avant de lancer du script, vous devez vous menir des deux informations demandées.
-
+ 
+Avant de lancer le script, vous devez vous munir des deux informations demandées.
+ 
 === "Nom du dossier de l'utilisateur cible"
-
+ 
     Le script installe un virus dans le dossier de l'utilisateur cible.<br>
     Puisqu'il est possible de changer le nom de ce dossier, le script le redemande.
  
     ???abstract "Si vous ne connaissez pas le nom du dossier"
         - Dans l'explorateur de fichiers, allez au dossier "C:\Users" (vous pouvez copier-coller le chemin dans la barre de gauche)
         - Retenez le nom **exact** du dossier de l'utilisateur cible.
-
+ 
+        <figure markdown>
+            ![image](img/4.png)
+            <figcaption>Recherche du nom d'utilisateur</figcaption>
+        </figure>
+ 
 === "Heure souhaitée"
-
+ 
     L'heure d'extinction souhaitée devra être communiquée au format hhmm.<br>
     Par exemple, pour choisir 22h37 il faut entrer `2237`.
-
+ 
 ### Lancement du script
-
- - Ouvrir le dossier "Extinction programmée"
+ 
+ - Ouvrir le dossier "Arrêt programmé"
  - Faire un click-droit sur "Lancez-moi.dat"
  - Sélectionner "Exécuter en tant qu'administrateur".
- - Une fenêtre noire doit s'ouvrir.
+
+<figure markdown>
+  ![image](img/5.png)
+  <figcaption>Lancement du script</figcaption>
+</figure>
+
+???abstract "En cas de bloquage antivirus"
+    Puisqu'il s'agit d'un virus, il est possible que votre antivirus bloque l'exécution et affiche une fenêtre avec un message.<br>
+    Il y a habituellement la possibilité d'autoriser l'exécution, parfois cachée dans "plus de détails". 
+
  - Suivez les instructions en tapant ++enter++ à la fin de votre réponse.
 
 !!!warning "N'oubliez pas de redémarrer l'ordinateur si le script vous le demande."
  
-### Prérennité du script
-
-En fonctionnement normal, le script arrête l'ordinateur tous les jours à l'heure définie sans qu'aucune action ne soit requise. 
-
-Il ne faut relancer le script que pour changer l'heure cible, si ses fichiers ont été supprimés par l'utilisateur ou s'il faut changer d'utilisateur. 
-
+### Pérennité du script
+ 
+En fonctionnement normal, le script arrête l'ordinateur tous les jours à l'heure définie sans qu'aucune action ne soit requise.
+ 
+Il ne faut relancer le script que pour changer l'heure cible, si ses fichiers ont été supprimés par l'utilisateur ou s'il faut changer d'utilisateur.
+ 
 ## Contact
-
-N'hesitez surtout pas à me contacter en cas de doute. Vous pouvez utiliser le boutone en bas à droite de cette page pour m'envoyer un mail rapidement. 
+ 
+N'hésitez surtout pas à me contacter en cas de doute. Vous pouvez utiliser le bouton en bas à droite de cette page pour m'envoyer un mail rapidement.
