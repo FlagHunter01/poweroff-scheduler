@@ -24,15 +24,15 @@ if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adminis
 
 # Récupération du nom d'utilisateur et de l'heure limite
 Write-Output "Renseignez le nom d'utilisateur cible tel qu'il apparait dans le fichier 'C:\Users'."
-$user = Read-Host "Nom d'utilisateur: "
+$user = Read-Host "Nom d'utilisateur"
 Write-Output "Renseignez l'heure d'arret voulue au format hhmm (Par exempe, 22h30 se note 2230)."
 Write-Output "Pour desactiver l'arret programme, entrez '0'."
-$limit = Read-Host "Heure de l'arret programme: "
+$limit = Read-Host "Heure de l'arret programme"
 Write-Output " "
 Write-Output "Creation / mise a jour du virus ..."
 
 # Drapeau de nécessité de redémarage
-$ restart = 0
+$restart = 0
 # Chemin du lanceur silencieux
 $launcherPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\schedulerLauncher.vbs"
 # Chemin du script
