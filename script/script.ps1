@@ -1,10 +1,9 @@
-Write-Output "### Poweroff-sheduler configuration ###"
+# Le script a été pensé pour être le plus simple d'utilisation que possible.
+# La quantité de fichiers et d'intéractions ont donc étés réduits au maximum.
+Write-Output "### Parametrage de l'arret programme ###"
 Write-Output " "
 
-
-
-### Checking for admin rights ###
-# This should never work since the script is granted admin rights by the .bat launcher
+# Vérification des droits
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Output "Merci de lancer ce script avec les privileges d'administrateur (click droit - Executer en tant qu'administrateur)"
@@ -12,94 +11,90 @@ if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Adminis
     exit 1
 }
 
-
-
-### Reading username and target time ###
-Write-Output "Enter the target user's name as displayed in the 'C:\Users' folder."
-$user = Read-Host "Username"
-Write-Output "Enter the target time in hhmm format (e.g.: 10:37pm is written '2237)."
-Write-Output "To deactivate the shutdown, enter '0'."
-$limit = Read-Host "Target time"
+# Récupération du nom d'utilisateur et de l'heure limite
+Write-Output "Renseignez le nom d'utilisateur cible tel qu'il apparait dans le fichier 'C:\Users'."
+$user = Read-Host "Nom d'utilisateur"
+Write-Output "Renseignez l'heure d'arret voulue au format hhmm (Par exempe, 22h30 se note 2230)."
+Write-Output "Pour desactiver l'arret programme, entrez '0'."
+$limit = @(1,2,3,4,5,6,7)
+$limit[0] = Read-Host "Lundi"
+$limit[1] = Read-Host "Mardi"
+$limit[2] = Read-Host "Mercredi"
+$limit[3] = Read-Host "Jeudi"
+$limit[4] = Read-Host "Vendredi"
+$limit[5] = Read-Host "Samedi"
+$limit[6] = Read-Host "Dimanche"
 Write-Output " "
-Write-Output "Creation / update of the script ..."
+Write-Output "Creation / mise a jour du virus ..."
 
-
-
-### Setting up variables for the script ###
-# Flag indicating the need to restart the computer
+# Drapeau de nécessité de redémarage
 $restart = 0
-
-## Paths
-# Path of the launcher
+# Chemin du lanceur silencieux
 $launcherPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\schedulerLauncher.vbs"
-# Path of the script itself
-$scriptPath = "C:\Users\" + $user + "\AppData\scheduler.ps1"
+# Chemin du script
+$scriptPath = "C:\Users\" + $user + "\AppData\Roaming\scheduler.ps1"
 
-## Content
-# Launcher content
+# Contenu du lanceur silencieux
 $launcherContent = 'command = "powershell.exe -nologo -command ' + $scriptPath + '"
 set shell = CreateObject("WScript.Shell")
 shell.Run command,0'
-# Script content
+# Contenu du script
 $scriptContent = 'while (1) {
-    # Target time
-    $limit = ' + $limit + '
-    # Get current time
-    $time = Get-Date -Format "HHmm"
-    # Convert to int
-    $time = $time -as [int]
-    # if current time > limit or if it's before 6am and the limit isn't 0, force shutdown.
-    if (($time -gt $limit) -or ($time -lt 0600) -and ($time)) {
-        Stop-Computer -ComputerName localhost -Force
-    }
-    # This script runs once every minute
-    Start-Sleep -Seconds 60
-}'
+    # Tableau d heures limites
+$limitArray = @('+$limite[0]+','+$limite[1]+','+$limite[2]+','$+limite[3]+','+$limite[4]+','+$limite[5]+','+$limite[6]+')
+# Limite actuelle
+$limit = $limitArray[[Int] (Get-Date).DayOfWeek - 1]
+# Obtenir l heure actuelle
+$time = Get-Date -Format "HHmm"
+# Convertir en entier
+$time = $time -as [int]
+# Si l heure actuelle est supérieure à la limite ou inférieure à 6h00 et différente de 0, éteindre l ordi
+if (($time -gt $limit) -or ($time -lt 0600) -and ($time)) {
+    Stop-Computer -ComputerName localhost -Force
+}
+Write-Output $limit
+# La vérification se fait toutes les minutes
+Start-Sleep -Seconds 60'
 
-### Implanting the script into the target user's folders ###
-# Create launcher if it doesn't exist
+#Vérification de l'existance et écriture des deux fichiers
 if (!(Test-Path -Path $launcherPath -PathType Leaf)) {
     try {
         New-Item $launcherPath
         Set-Content $launcherPath $launcherContent
     }
     catch {
-        Write-Output "Error while creating launcher."
+        Write-Output "Echec de la creation du lanceur."
         exit 1
     }
     $restart = 1
 }
-# Create script if it doesn't exist
 if (!(Test-Path -Path $scriptPath -PathType Leaf)) {
     try {
         New-Item $scriptPath
         Set-Content $scriptPath $scriptContent
     }
     catch {
-        Write-Output "Error while creating script."
+        Write-Output "Echec de la creation du virus."
         exit 1
     }
     $restart = 1
 }
-# Updating script if it already exists
 else {
     try {
         Set-Content $scriptPath $scriptContent
     }
     catch {
-        Write-Output "Error while updating script."
+        Write-Output "Echec de la modification du virus."
         exit 1
     }
 }
 Write-Output "Ok."
 
-### End ###
-# Displaying restart message
 if ($restart){
-    Write-Output "RESTART REQUIRED"
+    Write-Output "REDEMARRAGE REQUIS"
 }
-# Waiting for imput to keep the window alive
+
 Write-Output " "
-Read-Host "Press enter to finish"
+Read-Host "Appuillez sur entree pour terminer"
 
 exit 0
