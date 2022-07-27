@@ -33,7 +33,7 @@ try {
     # Chemin du lanceur silencieux
     $launcherPath = "C:\Users\" + $user + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\schedulerLauncher.vbs"
     # Chemin du script
-    $scriptPath = "C:\Users\" + $user + "\AppData\Roaming\scheduler.ps1"
+    $scriptPath = "C:\Users\" + $user + "\AppData\scheduler.ps1"
 
     # Contenu du lanceur silencieux
     $launcherContent = 'command = "powershell.exe -nologo -command ' + $scriptPath + '"
