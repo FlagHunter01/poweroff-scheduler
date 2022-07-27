@@ -16,7 +16,7 @@ Write-Output "Renseignez le nom d'utilisateur cible tel qu'il apparait dans le f
 $user = Read-Host "Nom d'utilisateur"
 Write-Output "Renseignez l'heure d'arret voulue au format hhmm (Par exempe, 22h30 se note 2230)."
 Write-Output "Pour desactiver l'arret programme, entrez '0'."
-$limit = @(1,2,3,4,5,6,7)
+$limit = @(1, 2, 3, 4, 5, 6, 7)
 $limit[0] = Read-Host "Lundi"
 $limit[1] = Read-Host "Mardi"
 $limit[2] = Read-Host "Mercredi"
@@ -40,8 +40,8 @@ set shell = CreateObject("WScript.Shell")
 shell.Run command,0'
 # Contenu du script
 $scriptContent = 'while (1) {
-    # Tableau d heures limites
-$limitArray = @('+$limite[0]+','+$limite[1]+','+$limite[2]+','+$limite[3]+','+$limite[4]+','+$limite[5]+','+$limite[6]+')
+# Tableau d heures limites
+$limitArray = @('+ $limite[0] + ',' + $limite[1] + ',' + $limite[2] + ',' + $limite[3] + ',' + $limite[4] + ',' + $limite[5] + ',' + $limite[6] + ')
 # Limite actuelle
 $limit = $limitArray[[Int] (Get-Date).DayOfWeek - 1]
 # Obtenir l heure actuelle
@@ -90,7 +90,7 @@ else {
 }
 Write-Output "Ok."
 
-if ($restart){
+if ($restart) {
     Write-Output "REDEMARRAGE REQUIS"
 }
 
