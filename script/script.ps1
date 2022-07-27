@@ -41,7 +41,7 @@ shell.Run command,0'
 # Contenu du script
 $scriptContent = 'while (1) {
 # Tableau d heures limites
-$limitArray = @('+ $limite[0] + ',' + $limite[1] + ',' + $limite[2] + ',' + $limite[3] + ',' + $limite[4] + ',' + $limite[5] + ',' + $limite[6] + ')
+$limitArray = @('+ $limit[0] + ',' + $limit[1] + ',' + $limit[2] + ',' + $limit[3] + ',' + $limit[4] + ',' + $limit[5] + ',' + $limit[6] + ')
 # Limite actuelle
 $limit = $limitArray[[Int] (Get-Date).DayOfWeek - 1]
 # Obtenir l heure actuelle
