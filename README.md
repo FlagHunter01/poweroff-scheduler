@@ -1,37 +1,31 @@
 # Aide pour le script d'arrêt programmé
  
 ## Objectif
- 
+
 L'objectif de ce script est d'éteindre l'ordinateur à une heure voulue quand un utilisateur particulier est connecté.<br>
 Le script ne dévoile pas son existence visuellement.<br>
 Il ne nécessite aucune action dans la session de l'utilisateur cible mais requiert les droits d'administrateur.
  
-!!!warning "Important"
-     - Le script a été pensé pour une facilité d'utilisation maximale.<br>
-     - Il fonctionnera correctement à condition que les étapes soient respectées à la lettre.
-     - Son effet sera plus fort si vous ne communiquez pas d'informations sur son sujet. Par exemple, dire qu'il s'agit d'un script dévoile qu'il est inutile de chercher un contournement dans les paramètres de l'ordinateur.
+> **Warning**
+> - Le script a été pensé pour une facilité d'utilisation maximale.<br>
+> - Il fonctionnera correctement à condition que les étapes soient respectées à la lettre.
+> - Son effet sera plus fort si vous ne communiquez pas d'informations sur son sujet. Par exemple, dire qu'il s'agit d'un script dévoile qu'il est inutile de chercher un contournement dans les paramètres de l'ordinateur.
  
 ## Installation
- 
+
 ### Copie du script
  
  - Ouvrir une session administrateur sur le PC cible.
  - Copier le dossier "Arrêt programmé" à un endroit facilement accessible, de préférence le bureau.
  
-<figure markdown>
-  ![image](img/1.png)
-  <figcaption>Suggestion d'emplacement du dossier</figcaption>
-</figure>
+![image](img/1.png)
  
 ### Autorisation
  
  - Rechercher `Windows PowerShell` dans la barre Windows.
  - Sélectionner "Exécuter en tant qu'administrateur".
  
-<figure markdown>
-  ![image](img/2.png)
-  <figcaption>Lancement de PowerShell</figcaption>
-</figure>
+![image](img/2.png)
  
  - Une fois la console obtenue, entrer la commande suivante et taper ++enter++:
  
@@ -42,10 +36,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
  - Ecrire `O` et taper ++enter++.
  - Ecrire `exit` et taper ++enter++.
  
-<figure markdown>
-  ![image](img/3.png)
-  <figcaption>Attribution des droits</figcaption>
-</figure>
+![image](img/3.png)
  
 ## Utilisation
  
@@ -53,24 +44,22 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
  
 Avant de lancer le script, vous devez vous munir des deux informations demandées.
  
-=== "Nom du dossier de l'utilisateur cible"
+#### Nom du dossier de l'utilisateur cible
  
-    Le script installe un virus dans le dossier de l'utilisateur cible.<br>
-    Puisqu'il est possible de changer le nom de ce dossier, le script le redemande.
+Le script installe un virus dans le dossier de l'utilisateur cible.
+Puisqu'il est possible de changer le nom de ce dossier, le script le redemande.
  
-    ???abstract "Si vous ne connaissez pas le nom du dossier"
-        - Dans l'explorateur de fichiers, allez au dossier "C:\Users" (vous pouvez copier-coller le chemin dans la barre de gauche)
-        - Retenez le nom **exact** du dossier de l'utilisateur cible.
+> **Note**
+> **Si vous ne connaissez pas le nom du dossier**<br>
+> - Dans l'explorateur de fichiers, allez au dossier "C:\Users" (vous pouvez copier-coller le chemin dans la barre de gauche)
+> - Retenez le nom **exact** du dossier de l'utilisateur cible.
  
-        <figure markdown>
-            ![image](img/4.png)
-            <figcaption>Recherche du nom d'utilisateur</figcaption>
-        </figure>
+![image](img/4.png)
  
-=== "Heure souhaitée"
+#### Heure souhaitée
  
-    L'heure d'extinction souhaitée devra être communiquée au format hhmm.<br>
-    Par exemple, pour choisir 22h37 il faut entrer `2237`.
+L'heure d'extinction souhaitée devra être communiquée au format hhmm.
+Par exemple, pour choisir 22h37 il faut entrer `2237`.
  
 ### Lancement du script
  
@@ -78,18 +67,17 @@ Avant de lancer le script, vous devez vous munir des deux informations demandée
  - Faire un click-droit sur "Lancez-moi.dat"
  - Sélectionner "Exécuter en tant qu'administrateur".
 
-<figure markdown>
-  ![image](img/5.png)
-  <figcaption>Lancement du script</figcaption>
-</figure>
+![image](img/5.png)
 
-???abstract "En cas de bloquage antivirus"
-    Puisqu'il s'agit d'un virus, il est possible que votre antivirus bloque l'exécution et affiche une fenêtre avec un message.<br>
-    Il y a habituellement la possibilité d'autoriser l'exécution, parfois cachée dans "plus de détails". 
+> **Note**
+> **En cas de bloquage antivirus**<br>
+> Puisqu'il s'agit d'un virus, il est possible que votre antivirus bloque l'exécution et affiche une fenêtre avec un message.
+> Il y a habituellement la possibilité d'autoriser l'exécution, parfois cachée dans "plus de détails". 
 
  - Suivez les instructions en tapant ++enter++ à la fin de votre réponse.
 
-!!!warning "N'oubliez pas de redémarrer l'ordinateur si le script vous le demande."
+> **Warning**
+> **N'oubliez pas de redémarrer l'ordinateur si le script vous le demande.**
  
 ### Pérennité du script
  
