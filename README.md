@@ -61,7 +61,7 @@ For example, 10:37pm is written `2237`.
 ### Launching the script
  
  - Open the "Poweroff scheduler" folder.
- - Run "launch-me.dat" as administrator.
+ - Run "launcher.dat" as administrator.
  - Answer to the prompts with the previously acquired information
  
 > **Note**
