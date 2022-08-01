@@ -6,98 +6,76 @@
 
 This script aims to help regulate screentime by shutting down the computer at a target time.
 It was created due to the lack of reliaility of Microsoft Parental Control one can simply exit. 
+It is meant for Windows OS. 
 
 ### How it works
 
 The script prompts for a username and a target time.
 When the target user is connected, the script shuts down the computer when the target time os reached. As it is possible to abort a shutdown if there are unsaved files, the script uses a hard shutdown. 
-The script also automatically shuts down the computer before 6am if the target user is connected. 
- 
-## Objectif
-
-L'objectif de ce script est d'éteindre l'ordinateur à une heure voulue quand un utilisateur particulier est connecté.<br>
-Le script ne dévoile pas son existence visuellement.<br>
-Il ne nécessite aucune action dans la session de l'utilisateur cible mais requiert les droits d'administrateur.
- 
-> **Warning**
-> - Le script a été pensé pour une facilité d'utilisation maximale.<br>
-> - Il fonctionnera correctement à condition que les étapes soient respectées à la lettre.
-> - Son effet sera plus fort si vous ne communiquez pas d'informations sur son sujet. Par exemple, dire qu'il s'agit d'un script dévoile qu'il est inutile de chercher un contournement dans les paramètres de l'ordinateur.
+The script also automatically shuts down the computer before 6am if the target user is connected.
  
 ## Installation
 
-### Copie du script
+### Downloading
+
+ - Put the folder anywhere in your admin account, like the desktop.
  
- - Ouvrir une session administrateur sur le PC cible.
- - Copier le dossier "Arrêt programmé" à un endroit facilement accessible, de préférence le bureau.
+### Granting rights
  
-![image](img/1.png)
- 
-### Autorisation
- 
- - Rechercher `Windows PowerShell` dans la barre Windows.
- - Sélectionner "Exécuter en tant qu'administrateur".
- 
-![image](img/2.png)
- 
- - Une fois la console obtenue, entrer la commande suivante et taper ++enter++:
+ - Open Windows PowerShell as administrator
+ - Run the command:
  
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 ```
+
+ - Enter `Y` and exit.
+
+You're done!
  
- - Ecrire `O` et taper ++enter++.
- - Ecrire `exit` et taper ++enter++.
+## Useage
  
-![image](img/3.png)
+### Required information
  
-## Utilisation
+Once you run the script, you will be asked for two pieces of information.
  
-### Informations requises
- 
-Avant de lancer le script, vous devez vous munir des deux informations demandées.
- 
-#### Nom du dossier de l'utilisateur cible
- 
-Le script installe un virus dans le dossier de l'utilisateur cible.
-Puisqu'il est possible de changer le nom de ce dossier, le script le redemande.
+#### Folder name of the target account
+
+The script generates a file inside the target user's folder.
+Since it is possible to change that folder name, the scripts asks it every time you launch it.
  
 > **Note**
-> **Si vous ne connaissez pas le nom du dossier**<br>
-> - Dans l'explorateur de fichiers, allez au dossier "C:\Users" (vous pouvez copier-coller le chemin dans la barre de gauche)
-> - Retenez le nom **exact** du dossier de l'utilisateur cible.
+> **If you don't know the target folder name**<br>
+> - Open the following path in your file manager: "C:\Users" (you can copy it in the top left search bar)
+> - Memorize the **exact** name of the target folder.
  
-![image](img/4.png)
- 
-#### Heure souhaitée
- 
-L'heure d'extinction souhaitée devra être communiquée au format hhmm.
-Par exemple, pour choisir 22h37 il faut entrer `2237`.
- 
-### Lancement du script
- 
- - Ouvrir le dossier "Arrêt programmé"
- - Faire un click-droit sur "Lancez-moi.dat"
- - Sélectionner "Exécuter en tant qu'administrateur".
+#### Target time
 
-![image](img/5.png)
+You will be prompted for a target time for each day of the week. 
+Please answer in the hhmm format. 
+For example, 10:37pm is written `2237`.
 
 > **Note**
-> **En cas de bloquage antivirus**<br>
-> Puisqu'il s'agit d'un virus, il est possible que votre antivirus bloque l'exécution et affiche une fenêtre avec un message.
-> Il y a habituellement la possibilité d'autoriser l'exécution, parfois cachée dans "plus de détails". 
+> **Please note that the script will automatically poweroff the computer if the target user logs in between 0 and 6 am.**
+ 
+### Launching the script
 
- - Suivez les instructions en tapant ++enter++ à la fin de votre réponse.
+ - Open the "Poweroff scheduler" folder.
+ - Run "launch-me.dat" as administrator.
+ - Answer to the prompts with the previously aquired information
+
+> **Note**
+> **Antivirus**<br>
+> Since it's a script, it is possible that it will be blocked by Windows Defender or another antivirus. 
+> There is usually a way to continue anyways by clicking the "More details" link on the antivirus popup.
 
 > **Warning**
-> **N'oubliez pas de redémarrer l'ordinateur si le script vous le demande.**
+> **Don't forget to restart the computer if the script asks you to.**
  
-### Pérennité du script
- 
-En fonctionnement normal, le script arrête l'ordinateur tous les jours à l'heure définie sans qu'aucune action ne soit requise.
- 
-Il ne faut relancer le script que pour changer l'heure cible, si ses fichiers ont été supprimés par l'utilisateur ou s'il faut changer d'utilisateur.
- 
-## Contact
- 
-N'hésitez surtout pas à me contacter en cas de doute. Vous pouvez utiliser le bouton en bas à droite de cette page pour m'envoyer un mail rapidement.
+### Durability of this script
+
+During normal operation, the coputer will shut down every day if the target user is connected at the specified time. This will repeat indefinetly. 
+No further action should be required. 
+
+However, if the file inside the user's folder is deleted, you will need to run the script again. 
+You can also run the script to update the shutdown time. 
