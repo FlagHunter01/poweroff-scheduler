@@ -1,4 +1,17 @@
-# Aide pour le script d'arrêt programmé
+# Poweroff Scheduler
+
+## Aim
+
+### Purpose
+
+This script aims to help regulate screentime by shutting down the computer at a target time.
+It was created due to the lack of reliaility of Microsoft Parental Control one can simply exit. 
+
+### How it works
+
+The script prompts for a username and a target time.
+When the target user is connected, the script shuts down the computer when the target time os reached. As it is possible to abort a shutdown if there are unsaved files, the script uses a hard shutdown. 
+The script also automatically shuts down the computer before 6am if the target user is connected. 
  
 ## Objectif
 
