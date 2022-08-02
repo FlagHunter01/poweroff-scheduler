@@ -7,8 +7,8 @@ Write-Output " "
 # This should never work since the script is granted admin rights by the .bat launcher
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Output "Merci de lancer ce script avec les privileges d'administrateur (click droit - Executer en tant qu'administrateur)"
-    Read-Host "Appuillez sur entree"
+    Write-Output "Please launch the script with administrator privileges (right-click - Launch as administrator)"
+    Read-Host "Press enter"
     exit 1
 }
 
