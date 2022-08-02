@@ -7,8 +7,8 @@ Write-Output " "
 # This should never work since the script is granted admin rights by the .bat launcher
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Output "Merci de lancer ce script avec les privileges d'administrateur (click droit - Executer en tant qu'administrateur)"
-    Read-Host "Appuillez sur entree"
+    Write-Output "Please launch the script with administrator privileges (right-click - Launch as administrator)"
+    Read-Host "Press enter"
     exit 1
 }
 
@@ -19,11 +19,15 @@ Write-Output "Enter the target user's name as displayed in the 'C:\Users' folder
 $user = Read-Host "Username"
 Write-Output "Enter the target time in hhmm format (e.g.: 10:37pm is written '2237)."
 Write-Output "To deactivate the shutdown, enter '0'."
-$limit = Read-Host "Target time"
+$limit[0] = Read-Host "Monday"
+$limit[1] = Read-Host "Tuesday"
+$limit[2] = Read-Host "Wednesday"
+$limit[3] = Read-Host "Thursday"
+$limit[4] = Read-Host "Friday"
+$limit[5] = Read-Host "Saturday"
+$limit[6] = Read-Host "Sunday"
 Write-Output " "
 Write-Output "Creation / update of the script ..."
-
-
 
 ### Setting up variables for the script ###
 # Flag indicating the need to restart the computer
@@ -41,14 +45,17 @@ $launcherContent = 'command = "powershell.exe -nologo -command ' + $scriptPath +
 set shell = CreateObject("WScript.Shell")
 shell.Run command,0'
 # Script content
-$scriptContent = 'while (1) {
-    # Target time
-    $limit = ' + $limit + '
+$scriptContent = 'while (1) {# Tableau d heure limite
+    $limitArray = @('+ $limit[0] + ',' + $limit[1] + ',' + $limit[2] + ',' + $limit[3] + ',' + $limit[4] + ',' + $limit[5] + ',' + $limit[6] + ')
     # Get current time
     $time = Get-Date -Format "HHmm"
     # Convert to int
     $time = $time -as [int]
-    # if current time > limit or if it's before 6am and the limit isn't 0, force shutdown.
+    # Get day of the week
+    $day = [Int] (Get-Date).DayOfWeek
+    # Today s time limit
+    $limit = $limitArray[$day-1]
+    # if current time > limit or if it s before 6am and the limit isn t 0, force shutdown.
     if (($time -gt $limit) -or ($time -lt 0600) -and ($time)) {
         Stop-Computer -ComputerName localhost -Force
     }
