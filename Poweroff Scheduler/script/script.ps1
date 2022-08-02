@@ -19,6 +19,7 @@ Write-Output "Enter the target user's name as displayed in the 'C:\Users' folder
 $user = Read-Host "Username"
 Write-Output "Enter the target time in hhmm format (e.g.: 10:37pm is written '2237)."
 Write-Output "To deactivate the shutdown, enter '0'."
+$limit = @(2200, 2200, 2200, 2200, 2200, 2200, 2200)
 $limit[0] = Read-Host "Monday"
 $limit[1] = Read-Host "Tuesday"
 $limit[2] = Read-Host "Wednesday"
