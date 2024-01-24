@@ -108,6 +108,6 @@ if ($restart){
 }
 # Waiting for imput to keep the window alive
 Write-Output " "
-Read-Host "Press enter to finish"
+Read-Host "Press enter to exit."
 
 exit 0
