@@ -163,7 +163,7 @@ function Write-Schedule {
     Write-Host " "
     $result = Write-Script $username $limit
     if ($result -eq 1) {
-        Write-Host "/!\ A restart is needed. Do you wish to restart now ?"
+        Write-Host "/!\ A restart is needed. Do you wish to restart now ?" -ForegroundColor Magenta
         $restart = Read-Host " - Y/n"
         if ($restart -eq 'y' -or $restart -eq 'Y' -or $restart -eq "") {
             Write-Host " "
