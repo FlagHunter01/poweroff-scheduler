@@ -1,7 +1,7 @@
 # TODO: Customize
 site_name: Poweroff scheduler
 # Site URL TODO: customize
-site_url: https://flaghunter01.github.io/poweroff-scheduler/
+site_url: https://flaghunter01.github.io/poweroff-scheduler/fr/
 # Copyright in footer
 copyright: Copyright &copy; 2024 Flag Hunter
 # Git repo URL TODO: customize
@@ -12,8 +12,8 @@ repo_name: poweroff-scheduler
 #edit_uri: edit/main/docs
 
 nav:
-  - Presentation: index.md
-  - Installation and useage: useage.md
+  - Présentation: index.md
+  - Installation et utilisation: useage.md
 
 theme:
   # Material theme
@@ -25,14 +25,14 @@ theme:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Passer au mode clair
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
+        name: Passer au mode sombre
       primary: black
       accent: amber
 
@@ -41,7 +41,7 @@ theme:
       scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Passer à la préférence système
       primary: black
       accent: amber
   # Font
@@ -49,7 +49,7 @@ theme:
     text: Roboto
     code: Roboto Mono
   # Language TODO: customize
-  language: en
+  language: fr
   # Logo / icons TODO: custimize
   #logo: assets/logo.png
   icon:
@@ -93,9 +93,9 @@ theme:
 extra:
   # Alt language TODO: customize
   alternate:
-    - name: Francais
-      link: fr/
-      lang: fr
+    - name: English
+      link: https://flaghunter01.github.io/poweroff-scheduler/
+      lang: en
   # Alternate "home" logo link
   #homepage: https://example.com
   # Cookies FIXME: Implement if needed https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#configuration
@@ -123,12 +123,12 @@ plugins:
   #      - categories
   #      - tags
   # Git commiters TODO: uncomment if needed and customize
-  - git-committers:
-      repository: FlagHunter01/poweroff-scheduler
-      branch: website
+  #- git-committers:
+  #    repository: FlagHunter01/poweroff-scheduler
+  #    branch: website
   # Git dates of file
-  - git-revision-date-localized:
-      enable_creation_date: true
+  #- git-revision-date-localized:
+  #    enable_creation_date: true
   # Optimize build
   #- optimize
   # Offline optimization
