@@ -1,4 +1,4 @@
-[![pages-build-deployment](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment)
+[Read the documentation to get started!](https://flaghunter01.github.io/poweroff-scheduler/index.html)
 
 [Download the latest version](https://github.com/FlagHunter01/poweroff-scheduler/releases)
 
