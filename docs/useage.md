@@ -62,3 +62,8 @@ If the script was already used, it will give ask you if you want to proceed with
 If you weren't asked to reboot or declined to do so, the script returns to the main menu so you can do another action, or exit by entering any letter. 
 
 If any error messages appeared (in red), it probably means that the username was wrong or the script didn't have admin privileges.
+
+## Limits
+
+- The script should function until it is disabled via the forementionned actions. Nevertheless, it is located in the user's folder (C:\<user>). If the user finds the location of the script, they can delete it. 
+- The script uses the system time. If the system time differs from the actual time, the script will function with false data. However, changing the system time breaks a lot of time-based processes like online games, so it is unlikely that the user will resort to this action. 
