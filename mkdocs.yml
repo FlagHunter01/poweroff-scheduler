@@ -94,7 +94,7 @@ extra:
   # Alt language TODO: customize
   alternate:
     - name: Francais
-      link: /fr/
+      link: fr/
       lang: fr
   # Alternate "home" logo link
   #homepage: https://example.com
