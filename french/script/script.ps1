@@ -7,8 +7,8 @@
 
 # Reads username from prompt
 function Read-Username {
-    Write-Host "Please enter the target username as found in C:\Users."
-    $username = Read-Host " - Username"
+    Write-Host "Merci d'entrer le nom d'utilisateur tel qu'il apparait dans C:\Users."
+    $username = Read-Host " - Nom d'utilisateur"
     return $username
 }
 
@@ -17,9 +17,9 @@ function Read-Username {
 function Search-Username {
     if (Test-Path -Path .\SavedUser.txt) {
         $username = Get-Item -Path .\SavedUser.txt | Get-Content -Tail 1
-        Write-Host 'Proceed with user '$username ' ?'
-        $selection = Read-Host " - Y/n"
-        if ($selection -eq 'Y' -or $selection -eq 'y' -or $selection -eq "") {
+        Write-Host 'Continuer avec '$username ' ?'
+        $selection = Read-Host " - O/n"
+        if ($selection -eq 'O' -or $selection -eq 'o' -or $selection -eq "") {
             return $username
         }
         else {
@@ -39,7 +39,7 @@ function Search-Username {
 # Returns 0 if successful, 1 if restart needed and 2 if failed
 function Write-Script ($user, $limit) {
     Write-Host " "
-    Write-Host "Writing launcher and script to target user."
+    Write-Host "Ecriture du lanceur et du script sur le profil cible."
     # Flag indicating the need to restart the computer
     $restart = 0
 
@@ -82,7 +82,7 @@ Start-Sleep -Seconds 60
             $restart = 1
         }
         catch {
-            Write-Host "Error while creating launcher."
+            Write-Host "Erreur lors de l'écriture du lanceur."
             return 2
         }
     }
@@ -94,7 +94,7 @@ Start-Sleep -Seconds 60
             $restart = 1
         }
         catch {
-            Write-Host "Error while creating script."
+            Write-Host "Erreur lors de l'écriture du script."
             return 2
         }
     }
@@ -104,12 +104,12 @@ Start-Sleep -Seconds 60
             Set-Content $scriptPath $scriptContent
         }
         catch {
-            Write-Host "Error while updating script."
+            Write-Host "Erreur pendant la mise à jour du script."
             return 2
         }
     }
     Write-Host " "
-    Write-Host "Done."
+    Write-Host "Fini."
     Write-Host " "
     if ($restart) {
         return 1
@@ -123,51 +123,51 @@ Start-Sleep -Seconds 60
 # Reads the wanted schedule from prompt and writes script to target user
 function Write-Schedule {
     Write-Host " "
-    Write-Host "### WRITING THE SCRIPT" -ForegroundColor Green
+    Write-Host "### ECRITURE DU SCRIPT" -ForegroundColor Green
     Write-Host " "
     $username = Search-Username
     Write-Host " "
-    Write-Host "Enter the target time in hhmm format (e.g.: 10:37pm is written '2237')."
-    Write-Host "The computer will shut down before the morning time and after the afternoon time."
-    Write-Host "To deactivate the shutdown, enter '0' for the morning time and '2400' for the afternoon."
+    Write-Host "Entrer l'heure cible au format hhmm (par exemple, 22h37 s'écrit 2237. 6h00 est 0600 et minuit est 2400)."
+    Write-Host "L'ordinateur s'éteindra avant la limite du matin et après la limite de l'après-midi."
+    Write-Host "Pour empêcher l'ordinateur de s'éteindre courant une journée, entrer 0 pour la limite du matin et 2400 pour la limite de l'après-midi."
     Write-Host " "
     [int32[][]]$limit = @((0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400))
-    Write-Host "Monday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Lundi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[0] = ($morning, $afternoon)
-    Write-Host "Tuesday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Mardi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[1] = ($morning, $afternoon)
-    Write-Host "Wednesday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Mercredi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[2] = ($morning, $afternoon)
-    Write-Host "Thursday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Jeudi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[3] = ($morning, $afternoon)
-    Write-Host "Friday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Vendredi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[4] = ($morning, $afternoon)
-    Write-Host "Saturday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Samedi"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[5] = ($morning, $afternoon)
-    Write-Host "Sunday"
-    $morning = Read-Host " - Morning"
-    $afternoon = Read-Host " - Afternoon"
+    Write-Host "Dimanche"
+    $morning = Read-Host " - Matin"
+    $afternoon = Read-Host " - Après-midi"
     $limit[6] = ($morning, $afternoon)
     Write-Host " "
     $result = Write-Script $username $limit
     if ($result -eq 1) {
-        Write-Host "/!\ A restart is needed. Do you wish to restart now ?"
-        $restart = Read-Host " - Y/n"
-        if ($restart -eq 'y' -or $restart -eq 'Y' -or $restart -eq "") {
+        Write-Host "/!\ Un redémarrage est requis. Voulez-vous redémarrer maintenant ?" -ForegroundColor Magenta
+        $restart = Read-Host " - O/n"
+        if ($restart -eq 'O' -or $restart -eq 'o' -or $restart -eq "") {
             Write-Host " "
-            Write-Host "### RESTARTING COMPUTER" -ForegroundColor Green
+            Write-Host "### REDEMARRAGE" -ForegroundColor Green
             Restart-Computer -ComputerName localhost -Force
         }
     }
@@ -179,15 +179,15 @@ function Write-Schedule {
 # Disables the poweroff for target user
 function Disable-Schedule {
     Write-Host " "
-    Write-Host "### DISABLING POWEROFF" -ForegroundColor Green
+    Write-Host "### DESACTIVATION DE L'EXTINCTION" -ForegroundColor Green
     Write-Host " "
-    Write-Host "/!\ Please note that the script will be written with no time restriction to the user if it isn't already in his folder." -ForegroundColor Magenta
+    Write-Host "/!\ Notez que si l'utilisateur cible n'était pas encore affecté par le script, un script bénin sera ajouté a sa session." -ForegroundColor Magenta
     Write-Host " "
     $username = Search-Username
     $limit = @((0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400), (0, 2400))
     Write-Script $username $limit
     Write-Host " "
-    Write-Host "Done."
+    Write-Host "Fini."
     Write-Host " "
     Select-Menu
     exit 0
@@ -196,14 +196,14 @@ function Disable-Schedule {
 # Deletes the script from target user
 function Clear-Schedule {
     Write-Host " "
-    Write-Host "### DELETING POWEROFF SCRIPT" -ForegroundColor Green
+    Write-Host "### SUPPRESSION DU SCRIPT" -ForegroundColor Green
     Write-Host " "
     $username = Search-Username
     $launcherPath = "C:\Users\" + $username + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\schedulerLauncher.vbs"
     $scriptPath = "C:\Users\" + $username + "\AppData\scheduler.ps1"
     Remove-Item -Path $launcherPath
     Remove-Item -Path $scriptPath
-    Write-Host "Done."
+    Write-Host "Fini."
     Write-Host " "
     Select-Menu
     exit 0
@@ -211,13 +211,13 @@ function Clear-Schedule {
 
 # Displays the selection menu and starts one of the other functions
 function Select-Menu {
-    Write-Host "### MAIN MENU" -ForegroundColor Green
+    Write-Host "### MENU PRINCIPAL" -ForegroundColor Green
     Write-Host " "
-    Write-Host "To create / update the poweroff schedule, press '1'."
-    Write-Host "To deactivate all scheduled poweroffs, press '2'."
-    Write-Host "To delete the poweroff scheduler, press '3'."
-    Write-Host "To exit this script, press any other key."
-    $selection = Read-Host " - Your choice"
+    Write-Host "Pour créer / mettre à jour un horaire d'extinction, entrez '1'."
+    Write-Host "Pour désactiver toutes les extinctions, entrez '2'."
+    Write-Host "Pour supprimer le script, entrez '3'."
+    Write-Host "Pour sortir, entrez n'importe quel autre caractère."
+    $selection = Read-Host " - Votre choix"
     
     switch ($selection) {
         
@@ -226,7 +226,7 @@ function Select-Menu {
         '3' { Clear-Schedule }
         Default {
             Write-Host " "
-            Write-Host "Closing script."
+            Write-Host "Fermeture du script."
             exit 0
         }
     }
@@ -238,13 +238,15 @@ function Select-Menu {
 
 Write-Host "### POWEROFF SCHEDULER" -ForegroundColor Green
 Write-Host " "
+Write-Host "https://flaghunter01.github.io/poweroff-scheduler/fr/"
+Write-Host " "
 
 ### Checking for admin rights 
 # This should never work since the script is granted admin rights by the .bat launcher
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if (!$currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-    Write-Host "/!\ Please launch the script with administrator privileges (right-click - Launch as administrator)" -ForegroundColor Magenta
-    Read-Host "Press enter"
+    Write-Host "/!\ Merci de lancer le script avec les privilèges d'administrateur (click-droit - Lancer en tant qu'administrateur)" -ForegroundColor Magenta
+    Read-Host "Appuyez sur entrée"
     exit 1
 }
 
