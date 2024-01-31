@@ -1,0 +1,169 @@
+# TODO: Customize
+site_name: Poweroff scheduler
+# Site URL TODO: customize
+site_url: https://flaghunter01.github.io/poweroff-scheduler/
+# Copyright in footer
+copyright: Copyright &copy; 2024 Flag Hunter
+# Git repo URL TODO: customize
+repo_url: https://github.com/FlagHunter01/poweroff-scheduler
+# Git repo name
+repo_name: poweroff-scheduler
+# Git edit URI TODO: customize
+#edit_uri: edit/main/docs
+
+nav:
+  - Presentation: index.md
+  - Installation and useage: useage.md
+
+theme:
+  # Material theme
+  name: material
+  # Colors
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: black
+      accent: amber
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+      primary: black
+      accent: amber
+  # Font
+  font:
+    text: Roboto
+    code: Roboto Mono
+  # Language TODO: customize
+  language: en
+  # Logo / icons TODO: custimize
+  #logo: assets/logo.png
+  icon:
+    logo: material/power
+  #favicon: images/favicon.png
+  features:
+    # Monopage (?)
+    - navigation.instant
+    # Start loading when link is hovered
+    - navigation.instant.prefetch
+    # Progress bar
+    - navigation.instant.progress
+    # Update URL with anchor
+    - navigation.tracking
+    # Top menu tabs
+    #- navigation.tabs
+    # Breadcrumbs
+    - navigation.path
+    # Avoid loading hidden nav and save 33% of build size (can't show folded sections, redirects to first page of the section instead)
+    #- navigation.prune
+    # Section overview pages
+    - navigation.indexes
+    # Anchor following
+    - toc.follow
+    # Back to top button
+    - navigation.top
+    # Search suggestion
+    - search.suggest
+    # Search highlight
+    - search.highlight
+    # Search sharing
+    #- search.share
+    # Footer nav 
+    - navigation.footer
+    # Keep content tab choice synchronised
+    - content.tabs.link
+    # Edit the page on git TODO: uncomment if needed
+    #- content.action.edit
+    #- content.action.view
+
+extra:
+  # Alt language TODO: customize
+  alternate:
+    - name: Francais
+      link: fr/
+      lang: fr
+  # Alternate "home" logo link
+  #homepage: https://example.com
+  # Cookies FIXME: Implement if needed https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#configuration
+  # Social links in footer TODO: customize
+  #social:
+  #  - icon: material/email
+  #    link: mailto:user@example.com
+  #    name: Email to user
+
+plugins:
+  # Download external dependancies
+  - privacy
+  # Search
+  - search
+  # Social cards
+  - social
+  # Blog
+  #- blog
+  # RSS TODO: uncomment if needed
+  #- rss:
+  #    match_path: blog/posts/.* 
+  #    date_from_meta:
+  #      as_creation: date
+  #    categories:
+  #      - categories
+  #      - tags
+  # Git commiters TODO: uncomment if needed and customize
+  - git-committers:
+      repository: FlagHunter01/poweroff-scheduler
+      branch: website
+  # Git dates of file
+  - git-revision-date-localized:
+      enable_creation_date: true
+  # Optimize build
+  #- optimize
+  # Offline optimization
+  - offline
+
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
