@@ -84,6 +84,8 @@ theme:
     #- search.share
     # Footer nav 
     - navigation.footer
+    # Keep content tab choice synchronised
+    - content.tabs.link
     # Edit the page on git TODO: uncomment if needed
     #- content.action.edit
     #- content.action.view
