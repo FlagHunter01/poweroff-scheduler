@@ -12,7 +12,8 @@ repo_name: poweroff-scheduler
 #edit_uri: edit/main/docs
 
 nav:
-  - Home: index.md
+  - Presentation: index.md
+  - Installation and useage: useage.md
 
 theme:
   # Material theme
