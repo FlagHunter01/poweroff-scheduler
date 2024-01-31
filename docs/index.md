@@ -16,7 +16,8 @@ For a given user, this script allows you to set limits, shutting down the comput
 ## Features
 
 - [x] Define custom morning and evening limits for every day of the week.
-    - [x] Windows will shut down if the time is before the morning limit or after the afternoon limit. 
+    - [x] Windows will shut down if the time is before the morning or after the afternoon limit. 
+    - [x] User sensitive: customize the schedule for multiple users.
 - [x] Easely disable or delete the script for a user.
 
 Hop on the next page to get started!
