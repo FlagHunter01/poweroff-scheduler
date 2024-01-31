@@ -2,6 +2,7 @@
 title: Poweroff scheduler
 description: A small script that power offs Windows on scedule. Ideal for your screentime goals!
 ---
+[![pages-build-deployment](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment)
 
 [:material-download: Download the latest version](https://github.com/FlagHunter01/poweroff-scheduler/releases){ .md-button .md-button--primary }
 
