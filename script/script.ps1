@@ -238,6 +238,8 @@ function Select-Menu {
 
 Write-Host "### POWEROFF SCHEDULER" -ForegroundColor Green
 Write-Host " "
+Write-Host "https://flaghunter01.github.io/poweroff-scheduler/"
+Write-Host " "
 
 ### Checking for admin rights 
 # This should never work since the script is granted admin rights by the .bat launcher
