@@ -12,8 +12,12 @@ repo_name: poweroff-scheduler
 #edit_uri: edit/main/docs
 
 nav:
-  - Presentation: index.md
-  - Installation and useage: useage.md
+  - English:
+    - Presentation: index.md
+    - Installation and useage: useage.md
+  - Francais:
+    - Présentation: fr/index.md
+    - Installation et utilisation: fr/useage.md
 
 theme:
   # Material theme
@@ -90,12 +94,12 @@ theme:
     #- content.action.edit
     #- content.action.view
 
-extra:
+#extra:
   # Alt language TODO: customize
-  alternate:
-    - name: Francais
-      link: fr/
-      lang: fr
+  #alternate:
+  #  - name: Francais
+  #    link: fr/
+  #    lang: fr
   # Alternate "home" logo link
   #homepage: https://example.com
   # Cookies FIXME: Implement if needed https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#configuration
