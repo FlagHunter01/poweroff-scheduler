@@ -69,7 +69,7 @@ theme:
     # Update URL with anchor
     - navigation.tracking
     # Top menu tabs
-    #- navigation.tabs
+    - navigation.tabs
     # Breadcrumbs
     - navigation.path
     # Avoid loading hidden nav and save 33% of build size (can't show folded sections, redirects to first page of the section instead)
