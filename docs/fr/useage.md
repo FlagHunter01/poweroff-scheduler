@@ -1,14 +1,14 @@
 ---
-title: Installation and useage
-description: Guide on how to install and use the software. 
+title: Installation et utilisation
+description: Guide à propos de l'installation et de l'utilisation du script. 
 ---
 
-!!! warning "Admin privileges"
-    Admin privileges are required for both the installation and execution of this script.
+!!! warning "Privilèges administrateur"
+    Les privilèges d'administrateur sont nécessaires pour l'installation et l'exécution du script.
 
 ## Installation
 
-1. First, open PowerShell with admin privileges and past this command:
+1. Commencez par ouvrir PowerShell en tant qu'administrateur et entrez la commande qui suit:
 ```ps
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 ```
