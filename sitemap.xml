@@ -2,12 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://flaghunter01.github.io/poweroff-scheduler/index.html</loc>
-         <lastmod>2024-01-31</lastmod>
+         <lastmod>2024-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://flaghunter01.github.io/poweroff-scheduler/useage.html</loc>
-         <lastmod>2024-01-31</lastmod>
+         <lastmod>2024-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://flaghunter01.github.io/poweroff-scheduler/fr/index.html</loc>
+         <lastmod>2024-02-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://flaghunter01.github.io/poweroff-scheduler/fr/useage.html</loc>
+         <lastmod>2024-02-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
