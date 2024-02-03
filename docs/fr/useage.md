@@ -12,58 +12,59 @@ description: Guide à propos de l'installation et de l'utilisation du script.
 ```ps
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 ```
-Then press the letter corresponding to "Yes". You have to press ++enter++ after each command you write.
+Entrez ensuite la lettre correspondant a "Oui". Vous devez appuiller sur ++enter++ après chaque commande que vous écrivez.
 
-2. Download the latest version of the script and unpack it. The destination folder can be anywhere but you should not make it accessible by the target users. 
+2. Téléchargez la dernière version du script et désarchivez-là. Le dossier de destination n'a pas d'importance mais le script ne devrait pas être accessible par les utilisateurs cibles.
 
-## Useage
+## Utilisation
 
-1. Take note of the exact name of the target user, as it can be seen in C:\Users\. This will be referred to as the **username**. 
-2. Open the unpacked folder and launch the launcher. A blue window should appear with the main menu of the script. 
-3. Depending of your use case, follow one of these three procedures.
+1. Notez le nom exact de l'utilisateur cible, tel qu'il apparait dans C:\Users\. Nous y ferons référence en temps que **username**. 
+2. Ouvrez le dossier extrait et rendez vous dans le sous-dossier "french". Lancez le lanceur. Une fenêtre bleue devrait apparaitre avec le menu du script. 
+3. En fonction de votre cas d'utilisation, suivez une de ses trois procédures.
 
-=== "Create or update a schedule for a user"
+=== "Créer ou mettre à jour l'horaire d'un utilisateur"
     
-    Enter `1`.
+    Entrez `1`.
 
-=== "Disable the poweroffs for a user"
+=== "Désactiver l'extinction pour un utilisateur"
 
-    Enter `2`.
+    Entrez `2`.
 
-=== "Delete the script from a user's profile"
+=== "Supprimer le script du profil d'un utilisateur"
 
-    Enter `3`.
+    Entrez `3`.
 
-When the script prompts you for a username, enter the one from step 1. <br>
-If the script was already used, it will give ask you if you want to proceed with the last used username. `Yes` is the default answer, you can decline by entering `n`.
+Si le script vous demande un nom d'utilisateur, entre le username retenu de l'étape 1. <br>
+Si le script a déjà été lancé, il vous demandera si vous voulez continuer avec le dernier username utilisé. `Oui` est la réponse par défaut, vous pouvez refuser en entrant `n`.
 
-!!! danger "Locking yourself out"
-    If you run the script with your own account or the admin account as a target, you will effectively lock yourself out if you are outside of the working hours you specified as the computer will shut down uppon login.
+!!! danger "S'enfermer hors de votre ordinateur"
+    Si vous lancez le script vec votre propre compte ou le compte utilisateur comme cible, vous risquez de couper votre propre accès à l'ordinateur si vous êtes en dehors des heures d'activité que vous avez définies puisque l'ordinateur s'éteindra au moment de l'ouverture de votre session.
 
-=== "Create or update a schedule for a user"
+=== "Créer ou mettre à jour l'horaire d'un utilisateur"
 
-    For each day of the week, you will be prompted for a morning limit and an afternoon limit.
-    Keep in mind that the computer will shut down *before* the morning limit and *after* the afternoon limit. 
-    For example, if you set the morning limit at 6 AM and the afternoon limit at 10 PM, the computer will be useable *between* 6 AM and 10 PM. 
+    Pour chaque jour de la semaine, vous serez invité à entrer une limite pour le matin et l'après-midi. 
+    L'ordinateur s'éteindra *avant* la limite du matin et *après* la limite de l'après-midi. 
+    Par  exemple, si vous définissez la limite du matin pour 6h et la limite du soir pour 22h, l'ordinateur ne sera utilisable que *entre* 6h et 22h. 
 
-    To enter the time, please use the `hhmm` format. For example, 6 AM is `0600` and 10PM is `2200`. 0:1 AM is `0001` and 11:59 PM is `2359`. 
+    Pour entrer l'heure, merci d'utiliser le format `hhmm`. Par exmemple, 6h s'écrit `0600` et 22h `2200`. 0h1 est `0001` et 23h59 est `2359`. 
 
-=== "Disable the poweroffs for a user"
+=== "Désactiver l'extinction pour un utilisateur"
 
-    The script will still be present in the user's profile, but it will have no effect on the computer (the working hours will be set from 0 AM to 12 PM). 
+    Le script sera toujours présent sur le profil de l'utilisateur cible, mais n'aura aucun effet (Les heures d'activité de l'ordinateur seront de minuit a minuit). 
 
-    !!! note "Previously unmonitored user"
-        Please note that if this action is carried out for a user that was previously unaffected by the script, the script will be written to their profile.
+    !!! note "Profil précédemment non affecé"
+        Veuillez noter que si le profil cible n'était jusqu'à présent pas affecté par le script, alors le script sera écrit à ce profil.
 
-=== "Delete the script from a user's profile"
+=== "Supprimer le script du profil d'un utilisateur"
 
-    All files related to the script will be removed from the target profile.
+    Tous les fichiers liés au script seront supprimés du profil de l'utilisateur cible.
 
-If you weren't asked to reboot or declined to do so, the script returns to the main menu so you can do another action, or exit by entering any letter. 
+Si le script ne vous a pas demandé de redémarrer l'ordinateur ou que vous avez refusé de le faire, le menu principal est affiché à nouveau afin de vous permettre de faire une autre action ou de sortir en appuillant sur n'importe quelle lettre.
 
-If any error messages appeared (in red), it probably means that the username was wrong or the script didn't have admin privileges.
+Si des messages d'erreur sont apparus (en rouge), c'est probablement dû à un mauvais username ou au fait que le script n'ait pas obtenu les privilèges d'administrateur.
 
-## Limits
+## Limites
 
-- The script should function until it is disabled via the forementionned actions. Nevertheless, it is located in the user's folder (C:\<user>). If the user finds the location of the script, they can delete it. 
-- The script uses the system time. If the system time differs from the actual time, the script will function with false data. However, changing the system time breaks a lot of time-based processes like online games, so it is unlikely that the user will resort to this action. 
+- Le script devrait fonctionner tant qu'il n'a pas été arrêté par une des actions citées plus haut.
+Celà-dit, le script est contenu dans les dossiers du profil de l'utilisarteur cible. S'il est découvert, il peut doc être supprimé. 
+- Le script utilise le temps système. Si le temps système diffère du temps réel, le script fonctionnera avec la fausse information. Celà-dit, changer le temps de système entraine beaucoup de dysfonctionnements, nottemment pôur les jeux en ligne. Il est donc peu probable qu l'utiisateur utilisera cette méthode de contournement.  
