@@ -1,12 +1,12 @@
 ---
 title: Poweroff scheduler
-description: Un petit script qu éteint Windows selon un horaire. Idéal pour vos objectifs de temps d'écran!
+description: Un petit script qui éteint Windows selon un horaire. Idéal pour vos objectifs de temps d'écran!
 ---
 [![pages-build-deployment](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/FlagHunter01/poweroff-scheduler/actions/workflows/pages/pages-build-deployment)
 
 [:material-download: Téléchargez la dernière version](https://github.com/FlagHunter01/poweroff-scheduler/releases){ .md-button .md-button--primary }
 
-## A quoi ca sert ? 
+## A quoi ça sert ?
 
 L'idée derrière ce script est de créer le limiteur de temps d'écran ultime.
 
